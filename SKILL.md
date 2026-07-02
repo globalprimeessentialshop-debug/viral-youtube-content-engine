@@ -1,4 +1,74 @@
-# OpenJarvis YouTube Content Engine - Claude Skill Definition
+---
+name: viral-youtube-master-brain
+displayName: OpenJarvis YouTube Master Brain Agent
+description: "Autonomous AI system that orchestrates 5 specialized agents to research, create, optimize, and distribute viral YouTube videos with 24/7 learning and evolution."
+category: "content-creation"
+subcategory: "video-production"
+version: "1.0.0"
+author: "OpenJarvis Team"
+license: "MIT"
+tags:
+  - youtube
+  - content-creation
+  - video-production
+  - ai-agents
+  - viral-content
+  - automation
+  - multi-agent
+  - orchestration
+isPublic: true
+externalLinks:
+  - title: "GitHub Repository"
+    url: "https://github.com/globalprimeessentialshop-debug/viral-youtube-content-engine"
+  - title: "Agent Documentation"
+    url: "https://github.com/globalprimeessentialshop-debug/viral-youtube-content-engine/blob/main/AGENTS_GUIDE.md"
+supportedActions:
+  - analyze
+  - plan
+  - execute
+  - approve
+  - evolve
+  - monitor
+requiredAPIKeys:
+  - ANTHROPIC_API_KEY
+  - OPENAI_API_KEY
+  - YOUTUBE_API_KEY
+inputSchema:
+  type: object
+  required: ["action"]
+  properties:
+    action:
+      type: string
+      enum: ["analyze", "plan", "execute", "approve", "evolve", "monitor"]
+    category:
+      type: string
+      description: "Video category or niche (e.g., technology, gaming, education)"
+    targetAudience:
+      type: string
+      description: "Description of target viewers"
+    contentTheme:
+      type: string
+      description: "Main topic or theme"
+    videoLength:
+      type: integer
+      description: "Video duration in minutes"
+    approvalStatus:
+      type: boolean
+      description: "User approval for execution"
+outputSchema:
+  type: object
+  properties:
+    success:
+      type: boolean
+    data:
+      type: object
+    metrics:
+      type: object
+    nextSteps:
+      type: array
+---
+
+# OpenJarvis YouTube Master Brain Agent
 
 ## Skill Name
 **viral-youtube-master-brain**
@@ -57,23 +127,23 @@ Master Brain Agent system for autonomous YouTube content creation. Orchestrates 
 
 ## Input Parameters
 
-```
+```json
 {
-  "action": "analyze|plan|execute|approve|evolve",
+  "action": "analyze|plan|execute|approve|evolve|monitor",
   "category": "video_category_or_niche",
-  "target_audience": "description_of_target_viewers",
-  "content_theme": "main_topic_or_theme",
-  "performance_metrics": {
-    "target_subscribers": "number",
-    "target_watch_time": "hours",
-    "target_engagement_rate": "percentage",
-    "monetization_goal": "currency"
+  "targetAudience": "description_of_target_viewers",
+  "contentTheme": "main_topic_or_theme",
+  "videoLength": 10,
+  "performanceMetrics": {
+    "targetSubscribers": 100000,
+    "targetWatchTime": 500,
+    "targetEngagementRate": 8.5,
+    "monetizationGoal": 5000
   },
-  "user_preferences": {
+  "userPreferences": {
     "tone": "professional|entertaining|educational|casual",
-    "video_length": "minutes",
-    "upload_frequency": "daily|weekly|monthly",
-    "approved": "boolean"
+    "uploadFrequency": "daily|weekly|monthly",
+    "approved": true
   }
 }
 ```
@@ -83,46 +153,46 @@ Master Brain Agent system for autonomous YouTube content creation. Orchestrates 
 ### Analysis Output
 ```json
 {
-  "videos_analyzed": 5,
-  "common_themes": ["theme1", "theme2"],
-  "viral_patterns": [],
-  "engagement_triggers": [],
-  "viral_score_prediction": 0-100,
-  "recommended_improvements": []
+  "videosAnalyzed": 5,
+  "commonThemes": ["theme1", "theme2"],
+  "viralPatterns": [],
+  "engagementTriggers": [],
+  "viralScorePrediction": 85,
+  "recommendedImprovements": []
 }
 ```
 
 ### Project Plan Output
 ```json
 {
-  "project_title": "string",
-  "video_concept": "string",
-  "target_audience": "string",
-  "estimated_duration": "MM:SS",
-  "script_requirements": {},
-  "production_specs": {},
-  "social_assets": {},
-  "distribution_plan": {},
-  "expected_metrics": {
-    "views_24h": "number",
-    "views_7d": "number",
-    "subscriber_growth": "number",
-    "engagement_rate": "percentage",
-    "viral_potential": 0-100
+  "projectTitle": "string",
+  "videoConcept": "string",
+  "targetAudience": "string",
+  "estimatedDuration": "MM:SS",
+  "scriptRequirements": {},
+  "productionSpecs": {},
+  "socialAssets": {},
+  "distributionPlan": {},
+  "expectedMetrics": {
+    "views24h": 50000,
+    "views7d": 250000,
+    "subscriberGrowth": 1500,
+    "engagementRate": 8.5,
+    "viralPotential": 85
   },
-  "approval_status": "pending|approved|rejected"
+  "approvalStatus": "pending"
 }
 ```
 
 ### Agent Pipeline Output
 ```json
 {
-  "script": { "full_script": "string", ... },
-  "video_spec": { "shot_list": [], "broll": [], ... },
-  "social_assets": { "thumbnail": {}, "titles": [], ... },
-  "distribution": { "strategy": {}, "metrics": {}, ... },
-  "overall_viral_score": 0-100,
-  "ready_to_post": "boolean"
+  "script": { "fullScript": "string", "hooks": [], "viralElements": [] },
+  "videoSpec": { "shotList": [], "broll": [], "graphics": [] },
+  "socialAssets": { "thumbnail": {}, "titles": [], "tags": [] },
+  "distribution": { "strategy": {}, "schedule": {}, "metrics": {} },
+  "overallViralScore": 85,
+  "readyToPost": true
 }
 ```
 
@@ -147,42 +217,47 @@ Master Brain Agent system for autonomous YouTube content creation. Orchestrates 
 
 ## Usage Examples
 
-### Example 1: Research Top Videos
+### Example 1: Quick Analysis
 ```
-Skill: viral-youtube-master-brain
 Action: analyze
 Input: {
+  "action": "analyze",
   "category": "technology",
-  "target_audience": "tech enthusiasts aged 18-35"
+  "targetAudience": "tech enthusiasts aged 18-35"
 }
-Output: Analysis of top 5 tech videos with viral patterns
+Output: Analysis of top 5 tech videos with viral patterns and insights
 ```
 
 ### Example 2: Create Content Plan
 ```
-Skill: viral-youtube-master-brain
 Action: plan
 Input: {
-  "content_theme": "AI tutorials",
-  "target_subscribers": 100000,
-  "video_length": 10
+  "action": "plan",
+  "contentTheme": "AI tutorials",
+  "videoLength": 10,
+  "targetSubscribers": 100000
 }
 Output: Complete project plan (awaiting user approval)
 ```
 
 ### Example 3: Execute Agent Pipeline
 ```
-Skill: viral-youtube-master-brain
 Action: execute
 Prerequisite: User approval received
+Input: {
+  "action": "execute",
+  "approved": true
+}
 Output: Script → Video Specs → Thumbnails → Distribution Plan
 ```
 
 ### Example 4: Evolution Cycle
 ```
-Skill: viral-youtube-master-brain
 Action: evolve
 Trigger: After every completed project
+Input: {
+  "action": "evolve"
+}
 Output: Improved decision-making for next cycle
 ```
 
@@ -345,65 +420,6 @@ skill.monitor_video(
 4. **Monitor Evolution**: Check evolution_history.json for improvements
 5. **Test Variations**: Use A/B testing for optimization
 
-## Future Enhancements
-
-- [ ] Real-time video generation
-- [ ] Thumbnail image synthesis
-- [ ] Automatic caption generation
-- [ ] Multi-language support
-- [ ] TikTok/Instagram/Shorts optimization
-- [ ] Real-time viewer analytics
-- [ ] Automated posting to YouTube
-- [ ] Community management automation
-- [ ] Competitor tracking system
-- [ ] Trend prediction engine
-
-## Architecture Diagram
-
-```
-┌─────────────────────────────────────────┐
-│     Claude Interface (This Skill)       │
-└────────────────┬────────────────────────┘
-                 │
-┌────────────────▼────────────────────────┐
-│     Master Brain Agent (Brain)          │
-│  - Analysis & Planning                  │
-│  - User Approval Management             │
-│  - Agent Orchestration                  │
-│  - Evolution Control                    │
-└────────────────┬────────────────────────┘
-                 │
-      ┌──────────┼──────────┬─────────────┐
-      ▼          ▼          ▼             ▼
-   Script    Video       Social        YouTube
-   Agent     Content     Media         Distributor
-   (2)       Agent       Agent         Agent
-             (3)         (4)           (5)
-      │          │          │             │
-      └──────────┼──────────┴─────────────┘
-                 │
-      ┌──────────┴──────────┬──────────────┐
-      ▼                     ▼              ▼
-   Memory              Learning         Decision
-   System              Engine           Maker
-```
-
-## Version History
-
-- **v1.0.0** (2024): Initial release with 5-agent system
-- **v1.1.0**: Added evolution engine
-- **v1.2.0**: Added memory persistence
-- **v1.3.0**: Added decision maker system
-- **Current**: Full autonomous system with user approval gates
-
-## Contact & Support
-
-For skill integration support, documentation updates, or feature requests:
-- Repository: https://github.com/globalprimeessentialshop-debug/viral-youtube-content-engine
-- Documentation: See AGENTS_GUIDE.md in repository
-
----
-
 ## Custom Prompts for Claude
 
 ### Prompt 1: Quick Video Analysis
@@ -440,6 +456,76 @@ Use viral-youtube-master-brain to:
 4. Recommend differentiation strategies
 ```
 
+### Prompt 5: Growth Strategy
+```
+Create a 30-day growth strategy using viral-youtube-master-brain:
+1. Week 1: Content creation & optimization
+2. Week 2: Distribution & promotion
+3. Week 3: Engagement & community building
+4. Week 4: Analysis & evolution
+Include metrics and milestones.
+```
+
+## System Architecture
+
+```
+┌─────────────────────────────────────────┐
+│     Claude Interface (This Skill)       │
+└────────────────┬────────────────────────┘
+                 │
+┌────────────────▼────────────────────────┐
+│     Master Brain Agent (Brain)          │
+│  - Analysis & Planning                  │
+│  - User Approval Management             │
+│  - Agent Orchestration                  │
+│  - Evolution Control                    │
+└────────────────┬────────────────────────┘
+                 │
+      ┌──────────┼──────────┬─────────────┐
+      ▼          ▼          ▼             ▼
+   Script    Video       Social        YouTube
+   Agent     Content     Media         Distributor
+   (2)       Agent       Agent         Agent
+             (3)         (4)           (5)
+      │          │          │             │
+      └──────────┼──────────┴─────────────┘
+                 │
+      ┌──────────┴──────────┬──────────────┐
+      ▼                     ▼              ▼
+   Memory              Learning         Decision
+   System              Engine           Maker
+```
+
+## Version History
+
+- **v1.0.0** (2024): Initial release with 5-agent system
+- **v1.1.0**: Added evolution engine
+- **v1.2.0**: Added memory persistence
+- **v1.3.0**: Added decision maker system
+- **Current**: Full autonomous system with user approval gates and Claude integration
+
+## Future Enhancements
+
+- [ ] Real-time video generation
+- [ ] Thumbnail image synthesis
+- [ ] Automatic caption generation
+- [ ] Multi-language support
+- [ ] TikTok/Instagram/Shorts optimization
+- [ ] Real-time viewer analytics
+- [ ] Automated posting to YouTube
+- [ ] Community management automation
+- [ ] Competitor tracking system
+- [ ] Trend prediction engine
+
+## Contact & Support
+
+For skill integration support, documentation updates, or feature requests:
+- **Repository**: https://github.com/globalprimeessentialshop-debug/viral-youtube-content-engine
+- **Documentation**: See AGENTS_GUIDE.md in repository
+- **Issues**: GitHub Issues section
+
 ---
 
-**Skill Ready for Integration** ✅
+## Ready for Claude Integration ✅
+
+This skill is fully formatted with YAML frontmatter and ready to be integrated into Claude's knowledge base. Copy this entire file into Claude's skill configuration.
