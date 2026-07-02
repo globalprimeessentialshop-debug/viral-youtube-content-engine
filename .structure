@@ -1,0 +1,65 @@
+jarvis-youtube-automation/
+│
+├── 📄 SKILL.md                         [Skill definition with YAML frontmatter]
+├── 📄 README.md                        [Project overview and quick start]
+├── 📄 JARVIS_INTEGRATION_GUIDE.md      [Detailed integration guide]
+├── 📄 AGENTS_GUIDE.md                  [Agent documentation]
+│
+├── 🔧 Configuration Files
+│   ├── jarvis_config.py               [Main configuration]
+│   ├── .env.example                   [Environment template]
+│   └── requirements.txt               [All dependencies]
+│
+├── 🧠 Core System
+│   ├── jarvis_integration.py          [Main Jarvis integration]
+│   ├── jarvis_cli.py                  [CLI interface]
+│   ├── dashboard.py                   [Web dashboard server]
+│   └── jarvis_requirements.txt        [Jarvis-specific dependencies]
+│
+├── 🎨 Web Interface
+│   └── templates/
+│       └── dashboard.html             [Beautiful dashboard UI]
+│
+└── 🤖 AI Agents
+    └── python/
+        └── agents/
+            ├── master_brain_agent.py
+            ├── script_agent.py
+            ├── video_content_agent.py
+            ├── social_media_agent.py
+            └── youtube_distributor_agent.py
+
+
+KEY MAPPINGS:
+═════════════════════════════════════════════════════════════════
+
+Skill Name:     jarvis-youtube-automation
+Folder Name:    viral-youtube-content-engine
+Display Name:   Jarvis YouTube Content Automation System
+Version:        1.0.0
+
+Integration:
+  Voice Command:  "Jarvis" / "Open Jarvis"
+  Dashboard:      http://localhost:8000
+  CLI:            python jarvis_cli.py
+  Interactive:    python jarvis_integration.py
+
+Agents:
+  #1 Master Brain - Coordinator
+  #2 Script Agent - Content Writer
+  #3 Video Agent - Producer
+  #4 Social Media Agent - Manager
+  #5 Distributor Agent - Growth
+
+Approvals:
+  Checkpoint 1: Plan approval
+  Checkpoint 2: Final approval
+
+Features:
+  ✅ Real-time monitoring
+  ✅ 24/7 evolution
+  ✅ Web dashboard
+  ✅ CLI interface
+  ✅ Voice activation
+  ✅ Approval workflow
+  ✅ Auto-improvement
